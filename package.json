@@ -1,0 +1,20 @@
+{
+  "name": "redis",
+  "version": "1.0.0",
+  "main": "migrate_country.js",
+  "scripts": {
+    "migrate:country": "node migrate_country.js",
+    "migrate:city": "node migrate_city.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "ioredis": "^5.6.1",
+    "mongodb": "^6.17.0",
+    "pg": "^8.16.3"
+  }
+}
