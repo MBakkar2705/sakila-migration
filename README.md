@@ -16,7 +16,8 @@ sakila-migration/
 ├── Enoncé projet   # Présentation du travail à faire
 ├── package         # Fichier principal listant les dépendances du projet Node.js
 ├── package-lock    # Fichier de verrouillage généré par npm pour garantir la cohérence des versions installées
-├── README.md       # Documentation principale du projet 
+├── README.md       # Documentation principale du projet (version française)
+├── README.en.md    # Documentation principale du projet (version anglaise)
 
 >  Avant de lancer le projet, créez un fichier `.env` à partir de `.env.example` et remplissez vos propres identifiants.
 
