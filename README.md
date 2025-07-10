@@ -8,18 +8,17 @@ Projet académique visant à migrer une base relationnelle vers des bases NoSQL 
 
 ##  Structure du projet
 sakila-migration/ 
-├── docs/           # Documentation technique, captures, schémas
 ├── mongodb/        # Scripts pour migrer FILM, ACTOR, LANGUAGE, CATEGORY vers MongoDB
 ├── node-modules/   # Modules Node.js installés via npm (dotenv, pg, mongodb, ioredis, etc.)
 ├── redis/          # Scripts pour migrer COUNTRY et CITY vers Redis Cloud
 ├── sql/            # Fichiers .sql pour recréer la base PostgreSQL: sakila-schema.sql et sakila-data.sql
-├── .env		     # Fichier de configuration avec les variables d’environnement utilisées par tous les scripts
+├── .env.example	 # Modèle de configuration sans données sensibles, à copier en .env pour lancer le projet 
 ├── Enoncé projet   # Présentation du travail à faire
 ├── package         # Fichier principal listant les dépendances du projet Node.js
 ├── package-lock    # Fichier de verrouillage généré par npm pour garantir la cohérence des versions installées
 ├── README.md       # Documentation principale du projet 
 
-
+>  Avant de lancer le projet, créez un fichier `.env` à partir de `.env.example` et remplissez vos propres identifiants.
 
 ### Installation Redis Insight
 - Connexion établie à Redis Cloud
@@ -116,7 +115,7 @@ REDIS_USERNAME=default
 REDIS_PASSWORD=*****
 
 Chargé automatiquement par le module dotenv. Les scripts migrate_country.js et migrate_city.js utilisent process.env pour plus de sécurité et de portabilité.
-Exemple de structure disponible dans `docs/.env.example`
+Exemple de structure disponible dans `.env.example`
 
 ### MongoDB & Compass
 
@@ -223,4 +222,33 @@ language:<id> → {
 	Structure JSON conforme aux données PostgreSQL
 	Connexions et insertions vérifiées en conditions réelles
 
+### Création du script mongodb/migrate_category.js :
 
+- Structure des documents MongoDB insérés :
+category:<id> → {
+  category_id: <id>,
+  name: <nom de la catégorie>,
+  last_update: <timestamp ISO>
+}
+- Exemple réel :
+{
+  "category_id": 4,
+  "name": "Action",
+  "last_update": "2006-02-15T04:46:27.000Z"
+}
+- Exécution du script :
+	node mongodb/migrate_category.js
+- Résultat console :
+	Connexions établies  
+	16 catégories migrées vers MongoDB
+- Résultat validé dans MongoDB Compass :
+	Documents visibles dans la collection category
+	Structure JSON conforme aux données PostgreSQL
+	Connexions et insertions vérifiées en conditions réelles
+
+
+# Auteur
+
+Projet réalisé par **Mohamed Bakkar** dans le cadre de la formation sur la migration de bases relationnelles vers NoSQL.
+
+GitHub : [MBakkar2705](https://github.com/MBakkar2705)
